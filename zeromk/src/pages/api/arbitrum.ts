@@ -1,4 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
 import { FusionSDK, NetworkEnum, PrivateKeyProviderConnector } from '@1inch/fusion-sdk'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { parseUnits } from 'viem';

@@ -13,7 +13,6 @@ import {
 
 const projectId = '42cb45787690d40d3009bfd5c28bbbc4';
 
-// 2. Create wagmiConfig
 const metadata = {
   name: 'TokenTechies',
   description: 'TokenTechies',
