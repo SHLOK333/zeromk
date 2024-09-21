@@ -10,8 +10,8 @@ import {
   scrollSepolia,
 } from 'viem/chains';
 
-// 1. Get projectId at https://cloud.walletconnect.com
-const projectId = '33e28c5d43009b3668cccf62984e6dbe';
+
+const projectId = '42cb45787690d40d3009bfd5c28bbbc4';
 
 // 2. Create wagmiConfig
 const metadata = {

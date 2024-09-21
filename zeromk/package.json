@@ -11,6 +11,7 @@
   "dependencies": {
     "@1inch/fusion-sdk": "^0.1.12",
     "@headlessui/react": "^1.7.17",
+    "@walletconnect/web3wallet": "^1.15.2",
     "@web3modal/ethereum": "^2.7.1",
     "@web3modal/react": "^2.7.1",
     "@web3modal/wagmi": "^3.4.0",

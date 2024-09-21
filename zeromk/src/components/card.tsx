@@ -52,10 +52,11 @@ export default function Card({ data }: IBucket) {
   const openModal = () => {
     setIsOpen(true);
   };
+
   return (
     <div className="flex flex-col w-76 p-5 font-['Roobert'] bg-neutral-800 border border-teal-400 rounded-lg">
-      <h1 className="text-gray-200">{data[5]}</h1>
-      <p className="text-gray-400">{data[6]}</p>
+      <h1 className="text-gray-200">{data?.[5] || 'Unknown Title'}</h1>
+      <p className="text-gray-400">{data?.[6] || 'No Description Available'}</p>
       <div className="flex flex-row justify-between mt-2">
         <div className="flex items-center ml-3">
           <Image
@@ -119,34 +120,36 @@ export default function Card({ data }: IBucket) {
                     </Dialog.Title>
                     <div className="flex flex-col mt-2 font-['Roobert']">
                       <h1 className="font-semibold text-xl text-gray-200">
-                        {data[5]}
+                        {data?.[5] || 'No Name Available'}
                       </h1>
-                      <p className="text-md text-gray-400">{data[6]}</p>
+                      <p className="text-md text-gray-400">{data?.[6]}</p>
                       <div className="flex flex-col gap-2 my-2">
-                        {data[2].map((token: string, index: number) => {
-                          const chain = networkOptions.find(
-                            (chain) => chain.chainid === chainId
-                          );
+                        {Array.isArray(data?.[2]) && data[2]?.length > 0 ? (
+                          data[2].map((token: string, index: number) => {
+                            const chain = networkOptions.find(
+                              (chain) => chain.chainid === chainId
+                            );
 
-                          if (!chain) return;
-                          const tokenDetails = tokenOptions[chain?.id].find(
-                            (tokenD: TokenOption) =>
-                              tokenD.contractAddress.toLowerCase() ===
-                              token.toLowerCase()
-                          );
+                            if (!chain) return null; // Ensure it handles missing chainId
+                            const tokenDetails = tokenOptions[chain.id].find(
+                              (tokenD: TokenOption) =>
+                                tokenD.contractAddress.toLowerCase() ===
+                                token.toLowerCase()
+                            );
 
-                          if (!tokenDetails) return;
-                          console.log('tokendetails', tokenDetails);
-                          return (
-                            <Chips
-                              key={index}
-                              name={tokenDetails?.name}
-                              uri={tokenDetails?.logoURI}
-                              proportion={data[3][index]}
-                              // }
-                            />
-                          );
-                        })}
+                            if (!tokenDetails) return null;
+                            return (
+                              <Chips
+                                key={index}
+                                name={tokenDetails.name}
+                                uri={tokenDetails.logoURI}
+                                proportion={data[3][index]}
+                              />
+                            );
+                          })
+                        ) : (
+                          <p>No tokens available</p>
+                        )}
                       </div>
                       <div className="flex gap-4 flex-row items-end justify-center">
                         <div className="flex w-3/4">
@@ -180,8 +183,7 @@ export default function Card({ data }: IBucket) {
                                     toTokenAddress: data[2][index],
                                     amount:
                                       (Number(amount) *
-                                        Number(data[3][index])) /
-                                      100,
+                                        Number(data[3][index])) / 100,
                                     decimal: 6,
                                   }),
                                   headers: {
