@@ -37,7 +37,7 @@ export default function Deposit() {
       </Head>
       <main className="flex flex-col gap-5 p-5 md:p-10 md:px-44 items-center">
         <h1 className="font-['trap'] font-bold text-2xl md:text-3xl text-gray-200">
-          Just Save Your Precious Time
+          Just Save Your Precious Time 
         </h1>
         <div className="flex gap-5 flex-wrap">
           {buckets.length > 0 ? (
