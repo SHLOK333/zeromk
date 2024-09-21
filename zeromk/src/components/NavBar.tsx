@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav className={`fixed w-full z-10 transition-all duration-300 ${navbarBg} p-4`}>
       <div className="max-w-[1080px] mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <Image src="/finn.png" width="40" height="40" alt="TokenTechies" className="mr-3" />
+          <Image src="" width="40" height="40" alt="TokenTechies" className="mr-3" />
           <span className="text-white text-2xl font-bold">TokenTechies</span>
         </Link>
         <div className="hidden md:flex md:items-center">
