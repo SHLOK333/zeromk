@@ -14,8 +14,8 @@ import {
 const projectId = '42cb45787690d40d3009bfd5c28bbbc4';
 
 const metadata = {
-  name: 'TokenTechies',
-  description: 'TokenTechies',
+  name: 'Cyber Surge',
+  description: 'Cyber Surge',
   url: 'https://web3modal.com',
   icons: ['https://avatars.githubusercontent.com/u/37784886'],
 };

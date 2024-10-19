@@ -27,7 +27,7 @@ export default function CreateBucket() {
     <main className="flex p-6 md:p-8 justify-center items-center min-h-screen bg-green-600">
       <div className="flex flex-col w-full md:w-[35%] gap-6 p-8 bg-neutral-800 border border-gray-700 rounded-xl shadow-xl">
         <h1 className="text-center text-3xl text-teal-300 font-bold font-['trap']">
-          Create Your Bucket
+          Buy your token of choice
         </h1>
 
         <Input

@@ -17,4 +17,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
- // {USING THE COMPETITIIVE ANALYSIS TOOL TO FET THE DATA OR T FETCH THE DATA WE ARE USING THE ONE INCH FUSIONN API}

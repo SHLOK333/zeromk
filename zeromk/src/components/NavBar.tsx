@@ -64,7 +64,7 @@ const Navbar = () => {
                 <Menu.Item>
                   {({ active }) => (
                     <Link href="/bucket" className={`${active ? "bg-blue-500 text-white" : "text-gray-900"} block px-4 py-2`}>
-                      Your Bucket
+                      Your Funds
                     </Link>
                   )}
                 </Menu.Item>
