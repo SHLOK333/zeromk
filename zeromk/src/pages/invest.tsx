@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useContractRead } from 'wagmi';
 
 export default function Deposit() {
-  // Type the buckets state as an array of strings (addresses)
+  // Define the state as an array of strings
   const [buckets, setBuckets] = useState<string[]>([]);
 
   const { data, error } = useContractRead({
@@ -16,15 +16,17 @@ export default function Deposit() {
     onError: (error) => {
       console.log('Error fetching buckets:', error);
     },
-    onSuccess: (data: string[]) => { // Type the data here as an array of strings
+    onSuccess: (data: any) => { // Explicitly type `data` here as `any`
       console.log('Fetched buckets:', data);
-      setBuckets(data); // Update the state with fetched data
+      if (Array.isArray(data)) {
+        setBuckets(data); // Update the state if the data is an array
+      }
     },
   });
 
   useEffect(() => {
-    if (data) {
-      setBuckets(data);
+    if (data && Array.isArray(data)) {
+      setBuckets(data); // Ensure the data is an array before updating the state
     }
   }, [data]);
 
