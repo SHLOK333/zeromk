@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import { useContractRead } from 'wagmi';
 
 export default function Deposit() {
-  const [buckets, setBuckets] = useState([]);
+  // Type the buckets state as an array of strings (addresses)
+  const [buckets, setBuckets] = useState<string[]>([]);
 
   const { data, error } = useContractRead({
     address: polygonAddress,
@@ -15,7 +16,7 @@ export default function Deposit() {
     onError: (error) => {
       console.log('Error fetching buckets:', error);
     },
-    onSuccess: (data) => {
+    onSuccess: (data: string[]) => { // Type the data here as an array of strings
       console.log('Fetched buckets:', data);
       setBuckets(data); // Update the state with fetched data
     },
@@ -41,7 +42,7 @@ export default function Deposit() {
         </h1>
         <div className="flex gap-5 flex-wrap">
           {buckets.length > 0 ? (
-            buckets.map((bucket: any, index: number) => (
+            buckets.map((bucket: string, index: number) => (
               <ShowBucket key={index} address={bucket} />
             ))
           ) : (
